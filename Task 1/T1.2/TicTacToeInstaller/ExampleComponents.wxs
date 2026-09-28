@@ -1,0 +1,9 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+	  <ComponentGroup Id="ExampleComponents" Directory="TicTacToeInstaller">
+		  <Component>
+			  <File Source="$(var.TicTacToe.TargetDir)TicTacToe.exe"/>
+		  </Component>
+	  </ComponentGroup>
+  </Fragment>
+</Wix>

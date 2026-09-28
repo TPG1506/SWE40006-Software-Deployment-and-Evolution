@@ -1,0 +1,9 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <ComponentGroup Id="ExampleComponents" Directory="TestInstaller">
+      <Component>
+        <File Source="$(var.TestFormApp.TargetDir)TestFormApp.exe" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
