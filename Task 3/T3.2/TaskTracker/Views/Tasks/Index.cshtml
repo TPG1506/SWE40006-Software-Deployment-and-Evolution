@@ -1,0 +1,27 @@
+@model IEnumerable<TaskTracker.Models.TaskItem>
+@{ ViewData["Title"] = "My Tasks"; }
+
+<h1>My Tasks</h1>
+<p><a asp-action='Create' class='btn btn-primary'>Add task</a></p>
+
+<table class='table'>
+    <thead><tr><th>Title</th><th>Due</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var t in Model)
+    {
+        <tr>
+            <td>@t.Title</td>
+            <td>@(t.DueDate?.ToString("dd MMM yyyy"))</td>
+            <td>@(t.IsDone ? "Done" : "To do")</td>
+            <td>
+                <form asp-action='Toggle' asp-route-id='@t.Id' method='post' class='d-inline'>
+                    <button class='btn btn-sm btn-outline-success'>Toggle</button>
+                </form>
+                <form asp-action='Delete' asp-route-id='@t.Id' method='post' class='d-inline'>
+                    <button class='btn btn-sm btn-outline-danger'>Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
